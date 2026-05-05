@@ -1,0 +1,53 @@
+services:
+  actividad01:
+    build:
+      context: ./actividad_01
+    working_dir: /workspace
+    volumes:
+      - ./actividad_01:/workspace
+    command: python src/run.py
+
+  actividad02:
+    build:
+      context: ./actividad_02
+    working_dir: /workspace
+    environment:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./actividad_02:/workspace
+    command: python src/main.py
+
+  actividad03:
+    build:
+      context: ./actividad_03
+    working_dir: /workspace
+    environment:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./actividad_03:/workspace
+    command: python src/main.py
+
+  actividad04:
+    build:
+      context: ./actividad_04
+    working_dir: /workspace
+    environment:
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - ./actividad_04:/workspace
+    command: python src/main.py
+
+  dashboard:
+    build:
+      context: ./dashboard
+    working_dir: /workspace
+    ports:
+      - "8501:8501"
+    environment:
+      PYTHONUNBUFFERED: "1"
+    volumes:
+      - .:/workspace
+    command: streamlit run dashboard/app.py --server.address=0.0.0.0 --server.port=8501
