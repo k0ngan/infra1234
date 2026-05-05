@@ -1,0 +1,7 @@
+{
+  "size_bytes": 512,
+  "signature_hex": "55aa",
+  "qemu_exit_code": 1,
+  "serial_log": "Boot OK: Micro S.O. UTEM",
+  "smoke_test_ok": true
+}
